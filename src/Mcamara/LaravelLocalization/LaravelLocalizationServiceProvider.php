@@ -80,7 +80,7 @@ class LaravelLocalizationServiceProvider extends ServiceProvider {
             return;
         });
 
-		$app['config']->package('mcamara/laravel-localization', __DIR__.'/../config');
+		$app['config']->set('mcamara/laravel-localization', __DIR__.'/../config');
 
 		$app['laravellocalization'] = $app->share(
             function() use($app)
