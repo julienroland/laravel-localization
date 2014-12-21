@@ -22,7 +22,6 @@ class LaravelLocalizationServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('mcamara/laravel-localization');
 	}
 
 	/**
@@ -44,7 +43,7 @@ class LaravelLocalizationServiceProvider extends ServiceProvider {
                 $locales = $app['laravellocalization']->getSupportedLocales();
                 $hideDefaultLocale = $app['laravellocalization']->hideDefaultLocaleInURL();
                 $redirection = false;
-                
+
                 if (!empty($locales[$localeCode]))
                 {
                     if ($localeCode === $defaultLocale && $hideDefaultLocale)
@@ -59,7 +58,7 @@ class LaravelLocalizationServiceProvider extends ServiceProvider {
                     // we use the current locale to redirect him
                     $redirection = $app['laravellocalization']->getLocalizedURL();
                 }
-                    
+
                 if($redirection)
                 {
                     // Save any flashed data for redirect
@@ -87,10 +86,10 @@ class LaravelLocalizationServiceProvider extends ServiceProvider {
             function() use($app)
     		{
     			return new LaravelLocalization(
-                    $app['config'], 
-                    $app['view'], 
-                    $app['translator'], 
-                    $app['router'], 
+                    $app['config'],
+                    $app['view'],
+                    $app['translator'],
+                    $app['router'],
                     $app
                 );
     		}
